@@ -20,8 +20,6 @@ export const MapPage = () => {
     }
   }, []);
 
-  console.log(onlineUsers);
-
   const defaultMapProps = {
     center: {
       lat: myLocation?.lat,

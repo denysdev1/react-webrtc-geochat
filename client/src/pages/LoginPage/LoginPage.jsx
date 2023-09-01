@@ -52,8 +52,7 @@ export const LoginPage = () => {
     );
   };
 
-  const onError = (err) => {
-    console.log(err);
+  const onError = () => {
     setHasErrorOccured(true);
   };
 
