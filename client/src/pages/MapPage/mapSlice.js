@@ -33,4 +33,5 @@ export const {
   removeDisconnectedUser,
   setCardChosenOption,
 } = mapSlice.actions;
+
 export default mapSlice.reducer;

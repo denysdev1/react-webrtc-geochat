@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setMyLocation } from "../MapPage/mapSlice";
-import { getDummyLocation } from "../../dummyData";
 import { connectWithSocketIOServer } from "../../socket-connection/socketConn";
 
 import { LoginButton } from "../../components/LoginButton";
@@ -53,7 +52,8 @@ export const LoginPage = () => {
     );
   };
 
-  const onError = () => {
+  const onError = (err) => {
+    console.log(err);
     setHasErrorOccured(true);
   };
 
@@ -63,8 +63,6 @@ export const LoginPage = () => {
       onError,
       locationOptions
     );
-
-    onSuccess(getDummyLocation());
   }, []);
 
   useEffect(() => {

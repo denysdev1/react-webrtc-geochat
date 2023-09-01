@@ -5,11 +5,22 @@ import { UserInfoCard } from '../../components/UserInfoCard';
 import { Messenger } from '../../components/Messenger/Messenger';
 import { VideoRooms } from '../../components/VideoRooms/VideoRooms';
 import './MapPage.css';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const MapPage = () => {
+  const navigate = useNavigate();
   const { myLocation, onlineUsers, cardChosenOption } = useSelector(
     (state) => state.map
   );
+
+  useEffect(() => {
+    if (!onlineUsers) {
+      navigate('/');
+    }
+  }, []);
+
+  console.log(onlineUsers);
 
   const defaultMapProps = {
     center: {

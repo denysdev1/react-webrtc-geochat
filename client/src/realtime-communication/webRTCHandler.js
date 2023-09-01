@@ -22,8 +22,8 @@ export const getAccessToLocalStream = async () => {
 
 export const connectWithPeerServer = () => {
   peer = new Peer(undefined, {
-    host: 'localhost',
-    port: 9000,
+    host: import.meta.env.VITE_HOST,
+    port: import.meta.env.VITE_PORT,
     path: '/peer',
   });
 

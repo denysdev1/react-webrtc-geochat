@@ -1,11 +1,13 @@
-import express from 'express';
+import express, { Router } from 'express';
 import http from 'http';
 import cors from 'cors';
 import { Server } from 'socket.io';
 import { PeerServer } from 'peer';
+import serverless from 'serverless-http';
 
-const app = express();
-const server = http.createServer(app);
+const api = express();
+const router = Router();
+const server = http.createServer(api);
 const io = new Server(server, {
   cors: {
     origin: '*',
@@ -13,9 +15,9 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors());
-app.get('/', (req, res) => {
-  res.send('This is get request!');
+api.use(cors());
+router.get('/', (req, res) => {
+  res.send('This is a get request!');
 });
 
 let onlineUsers = {};
@@ -189,3 +191,5 @@ function convertOnlineUsersToArray() {
 
   return onlineUsersArray;
 }
+
+export const handler = serverless(api);

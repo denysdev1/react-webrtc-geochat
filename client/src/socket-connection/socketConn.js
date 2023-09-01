@@ -10,7 +10,7 @@ import { call, disconnect } from '../realtime-communication/webRTCHandler';
 let socket = null;
 
 export const connectWithSocketIOServer = () => {
-  socket = io('http://localhost:3003');
+  socket = io(import.meta.env.VITE_SERVER_URL);
 
   socket.on('online-users', (usersData) => {
     onlineUsersHandler(socket.id, usersData);

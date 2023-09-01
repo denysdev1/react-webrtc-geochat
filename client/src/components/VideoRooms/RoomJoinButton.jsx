@@ -10,7 +10,7 @@ export const RoomJoinButton = ({
 
   const handleJoinRoom = () => {
     if (inRoom) {
-      return alert('Already in room');
+      return alert('Already in the room');
     }
 
     if (amountOfParticipants > 1) {
